@@ -1,0 +1,54 @@
+pipeline {
+    agent any
+
+    tools {
+        maven 'Maven3'  // Name of Maven installation in Jenkins
+        jdk 'Java11'    // Name of Java installation in Jenkins
+    }
+
+    environment {
+        MAVEN_OPTS = "-Xmx1024m"
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'main', url: 'https://github.com/username/repo.git'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                sh 'mvn clean compile'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                sh 'mvn test'
+            }
+        }
+
+        stage('Package') {
+            steps {
+                sh 'mvn package'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                echo 'Deploying...'
+                // Add deployment steps here if needed
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'Build successful!'
+        }
+        failure {
+            echo 'Build failed!'
+        }
+    }
+}
