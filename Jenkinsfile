@@ -1,10 +1,6 @@
 pipeline {
     agent any
 
-    tools {
-        maven 'Maven3'  // Name of Maven installation in Jenkins
-        jdk 'Java11'    // Name of Java installation in Jenkins
-    }
 
     environment {
         MAVEN_OPTS = "-Xmx1024m"
