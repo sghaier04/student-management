@@ -24,14 +24,14 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'testing...'
-                //sh 'mvn test'
+                sh 'mvn test'
             }
         }
 
         stage('Package') {
             steps {
                 echo 'packaging...'
-                //sh 'mvn package'
+                sh 'mvn package'
             }
         }
 
