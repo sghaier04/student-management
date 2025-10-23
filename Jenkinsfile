@@ -40,6 +40,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying...'
+                sh 'eval $(minikube -p jenkins-minikube docker-env)'
                 sh 'kubectl apply -f deployment.yaml --validate=false'
                 // Add deployment steps here if needed
             }
