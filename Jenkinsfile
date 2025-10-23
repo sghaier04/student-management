@@ -40,8 +40,8 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying...'
-                sh 'su - jenkins'
-                sh 'sudo kubectl apply -f deployment.yaml --validate=false'
+                // sh 'su - jenkins'
+                // sh 'sudo kubectl apply -f deployment.yaml --validate=false'
                 // Add deployment steps here if needed
             }
         }
