@@ -39,7 +39,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying...'
-                kubectl apply -f deployment.yaml
+                sh 'kubectl apply -f deployment.yaml'
                 // Add deployment steps here if needed
             }
         }
