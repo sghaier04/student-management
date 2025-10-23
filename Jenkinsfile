@@ -4,6 +4,8 @@ pipeline {
 
     environment {
         MAVEN_OPTS = "-Xmx1024m"
+        IMAGE_NAME = "student-management"
+        IMAGE_TAG  = "latest"
     }
 
     stages {
@@ -28,6 +30,12 @@ pipeline {
             }
         }
 
+        stage('Build Docker Image') {
+            steps {
+                // Build Docker image using Dockerfile in repo root
+                sh "docker build -t ${IMAGE_NAME}:${IMAGE_TAG} ."
+            }
+        }
         stage('Deploy') {
             steps {
                 echo 'Deploying...'
