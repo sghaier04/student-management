@@ -6,6 +6,7 @@ pipeline {
         MAVEN_OPTS = "-Xmx1024m"
         IMAGE_NAME = "student-management"
         IMAGE_TAG  = "latest"
+        KUBECONFIG = '/var/lib/jenkins/.kube/config'
     }
 
     stages {
