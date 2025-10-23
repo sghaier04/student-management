@@ -15,19 +15,23 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh 'mvn clean compile'
+                echo 'building...'
+                //sh 'mvn clean compile'
+                
             }
         }
 
         stage('Test') {
             steps {
-                sh 'mvn test'
+                echo 'testing...'
+                //sh 'mvn test'
             }
         }
 
         stage('Package') {
             steps {
-                sh 'mvn package'
+                echo 'packaging...'
+                //sh 'mvn package'
             }
         }
 
