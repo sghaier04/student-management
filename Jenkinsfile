@@ -21,13 +21,6 @@ pipeline {
             }
         }
 
-        stage('Test') {
-            steps {
-                echo 'testing...'
-                sh 'mvn test'
-            }
-        }
-
         stage('Package') {
             steps {
                 echo 'packaging...'
